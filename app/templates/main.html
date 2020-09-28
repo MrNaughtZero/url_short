@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static', filename='main.css')}}" type="text/css" rel="stylesheet">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <nav>
+        <h1>URL Shortener</h1>
+    </nav>
+
+    <main>
+        <form id="shorten-uri-form" method="POST" action="/submit">
+            <input type="input" required name="old-link" placeholder="URL">
+            <button type="submit">Shorten URI</button>
+        </form>
+        {% if message != [] %}
+            <div class="flashed-messages">
+        
+                <p><a href="/{{message[0]}}">127.0.0.1:5000/{{message[0]}}</a></p>
+            
+            </div>
+        {% endif %}
+    </main>
+</body>
+</html>
